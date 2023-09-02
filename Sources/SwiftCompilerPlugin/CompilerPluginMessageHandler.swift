@@ -114,6 +114,7 @@ extension CompilerPluginMessageHandler {
             
         case .expandFreestandingMacro(let macro, let macroRole, let discriminator, let expandingSyntax):
             try expandFreestandingMacro(
+                message: message,
                 macro: macro,
                 macroRole: macroRole,
                 discriminator: discriminator,
@@ -131,6 +132,7 @@ extension CompilerPluginMessageHandler {
             let conformanceListSyntax
         ):
             try expandAttachedMacro(
+                message: message,
                 macro: macro,
                 macroRole: macroRole,
                 discriminator: discriminator,
