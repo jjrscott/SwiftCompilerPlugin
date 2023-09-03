@@ -26,11 +26,15 @@ extension CompilerPluginMessageHandler {
             diagnostics = result.diagnostics
         } else {
             diagnostics = []
-            diagnostics.append(PluginMessage.Diagnostic(message: "\(#function) is not implemented", severity: .error, position: PluginMessage.Diagnostic.Position(fileName: expandingSyntax.location.fileName, offset: expandingSyntax.location.offset), highlights: [], notes: [], fixIts: []))
+            diagnostics.append(PluginMessage.Diagnostic(message: "\(#function) is not implemented for moduleName \(macro.moduleName) typeName: \(macro.typeName)", severity: .error, position: PluginMessage.Diagnostic.Position(fileName: expandingSyntax.location.fileName, offset: expandingSyntax.location.offset), highlights: [], notes: [], fixIts: []))
         }
         
         expandedSource = expandedSource.map{
             $0 + "\n/* \(prettyDescription(message))*/"
+        }
+        
+        if (expandedSource == nil) {
+            expandedSource = "/* \(prettyDescription(message))*/"
         }
 
         if hostCapability.hasExpandMacroResult {
@@ -64,11 +68,15 @@ extension CompilerPluginMessageHandler {
             diagnostics = result.diagnostics
         } else {
             diagnostics = []
-            diagnostics.append(PluginMessage.Diagnostic(message: "\(#function) is not implemented", severity: .error, position: PluginMessage.Diagnostic.Position(fileName: attributeSyntax.location.fileName, offset: attributeSyntax.location.offset), highlights: [], notes: [], fixIts: []))
+            diagnostics.append(PluginMessage.Diagnostic(message: "\(#function) is not implemented for moduleName \(macro.moduleName) typeName: \(macro.typeName)", severity: .error, position: PluginMessage.Diagnostic.Position(fileName: attributeSyntax.location.fileName, offset: attributeSyntax.location.offset), highlights: [], notes: [], fixIts: []))
         }
 
         expandedSource = expandedSource.map{
             $0 + "\n/* \(prettyDescription(message))*/"
+        }
+        
+        if (expandedSource == nil) {
+            expandedSource = "/* \(prettyDescription(message))*/"
         }
 
         if hostCapability.hasExpandMacroResult {
