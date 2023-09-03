@@ -1,10 +1,10 @@
 import SwiftCompilerPlugin
 
-/// Implementation of the `stringify` macro, which takes an expression
+/// Implementation of the `Example` macro, which takes an expression
 /// of any type and produces a tuple containing the value of that expression
 /// and the source code that produced the value. For example
 ///
-///     #stringify(x + y)
+///     #Example(x + y)
 ///
 ///  will expand to
 ///
@@ -63,7 +63,7 @@ public struct ExtensionMacro: AttachedMacro {
 }
 
 @main
-struct StringifyPlugin: CompilerPlugin {
+struct ExamplePlugin: CompilerPlugin {
 
     
     let providingMacros: [Macro.Type] = [

@@ -1,20 +1,20 @@
 import XCTest
 
 // Macro implementations build for the host, so the corresponding module is not available when cross-compiling. Cross-compiled tests may still make use of the macro itself in end-to-end tests.
-//#if canImport(StringifyMacros)
-//import StringifyMacros
+//#if canImport(ExampleMacros)
+//import ExampleMacros
 //
 //let testMacros: [String: Macro.Type] = [
-//    "stringify": StringifyMacro.self,
+//    "Example": ExampleMacro.self,
 //]
 //#endif
 
-final class StringifyTests: XCTestCase {
+final class ExampleTests: XCTestCase {
 //    func testMacro() throws {
-//        #if canImport(StringifyMacros)
+//        #if canImport(ExampleMacros)
 //        assertMacroExpansion(
 //            """
-//            #stringify(a + b)
+//            #Example(a + b)
 //            """,
 //            expandedSource: """
 //            (a + b, "a + b")
@@ -27,10 +27,10 @@ final class StringifyTests: XCTestCase {
 //    }
 //
 //    func testMacroWithStringLiteral() throws {
-//        #if canImport(StringifyMacros)
+//        #if canImport(ExampleMacros)
 //        assertMacroExpansion(
 //            #"""
-//            #stringify("Hello, \(name)")
+//            #Example("Hello, \(name)")
 //            """#,
 //            expandedSource: #"""
 //            ("Hello, \(name)", #""Hello, \(name)""#)

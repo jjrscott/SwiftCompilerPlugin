@@ -5,17 +5,17 @@ import PackageDescription
 import CompilerPluginSupport
 
 let package = Package(
-    name: "Stringify",
+    name: "Examples",
     platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Stringify",
-            targets: ["Stringify"]
+            name: "Example",
+            targets: ["Example"]
         ),
         .executable(
-            name: "StringifyClient",
-            targets: ["StringifyClient"]
+            name: "ExampleClient",
+            targets: ["ExampleClient"]
         ),
     ],
     dependencies: [
@@ -27,23 +27,23 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         // Macro implementation that performs the source transformation of a macro.
         .macro(
-            name: "StringifyMacros",
+            name: "ExampleMacros",
             dependencies: [
                 .product(name: "SwiftCompilerPlugin", package: "SwiftCompilerPlugin")
             ]
         ),
 
         // Library that exposes a macro as part of its API, which is used in client programs.
-        .target(name: "Stringify", dependencies: ["StringifyMacros"]),
+        .target(name: "Example", dependencies: ["ExampleMacros"]),
 
         // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "StringifyClient", dependencies: ["Stringify"]),
+        .executableTarget(name: "ExampleClient", dependencies: ["Example"]),
 
         // A test target used to develop the macro implementation.
         .testTarget(
-            name: "StringifyTests",
+            name: "ExampleTests",
             dependencies: [
-                "StringifyMacros",
+                "ExampleMacros",
 //                .product(name: "SwiftSyntaxMacrosTestSupport", package: "SwiftCompilerPlugin"),
             ]
         ),

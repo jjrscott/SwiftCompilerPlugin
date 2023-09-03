@@ -1,4 +1,4 @@
-import Stringify
+import Example
 import Foundation
 
 let a = 17
