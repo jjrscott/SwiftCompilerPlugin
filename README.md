@@ -28,7 +28,7 @@ let (result, code) = #ExpressionMacro(a + b)
       "kind" : "expression",
       "location" : {
         "fileID" : "ExampleClient\/main.swift",
-        "fileName" : "***/SwiftCompilerPlugin\/Examples\/Sources\/ExampleClient\/main.swift",
+        "fileName" : "•••/SwiftCompilerPlugin\/Examples\/Sources\/ExampleClient\/main.swift",
         "line" : 7,
         "offset" : 78,
         "column" : 22
